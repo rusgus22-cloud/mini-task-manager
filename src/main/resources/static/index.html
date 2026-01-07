@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Task Manager</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            color: #fff;
+        }
+
+        .app {
+            width: 900px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        input, select {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: none;
+            background: #00e5ff;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            background: #18ffff;
+            transform: scale(1.05);
+        }
+
+        .delete {
+            background: #ff5252;
+            color: white;
+        }
+
+        .delete:hover {
+            background: #ff1744;
+        }
+
+        .user {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: background 0.3s;
+        }
+
+        .user:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .task {
+            margin-left: 20px;
+            margin-top: 10px;
+            padding: 10px;
+            border-left: 4px solid #00e5ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-form {
+            display: none;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+    <h1>🚀 Mini Task Manager</h1>
+
+    <h2>Add user</h2>
+    <div class="card">
+        <input id="userName" placeholder="Name">
+        <input id="userEmail" placeholder="Email">
+        <button onclick="addUser()">Add user</button>
+    </div>
+
+    <h2>Users</h2>
+    <div id="users"></div>
+
+    <h2>Tasks</h2>
+
+    <div id="taskForm" class="card task-form">
+        <input id="taskTitle" placeholder="Title">
+        <input id="taskDesc" placeholder="Description">
+        <select id="taskStatus">
+            <option>TODO</option>
+            <option>IN_PROGRESS</option>
+            <option>DONE</option>
+        </select>
+        <button onclick="addTask()">Add task</button>
+    </div>
+
+    <div id="tasks"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
